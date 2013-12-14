@@ -1,0 +1,65 @@
+% rubber: set program xelatex
+\documentclass[
+    paper=a4,
+    parskip=half,
+    backaddress=off,
+    enlargefirstpage=true,
+]{scrlttr2}
+
+\usepackage{xltxtra}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{wasysym}
+
+\setmainfont[Mapping=tex-text]{Source Sans Pro}
+
+\makeatletter
+\renewcommand*{\raggedsignature}{\raggedright}
+\@setplength{refaftervskip}{4em}
+\makeatother
+
+\newcommand{\checkopt}[1]{%
+  \vspace{1em}%
+  \begin{minipage}[t]{0.1\linewidth}%
+    \hspace{1.5em}$\Box$
+  \end{minipage}%
+  \begin{minipage}[t]{0.9\linewidth}%
+    #1
+  \end{minipage}%
+}
+
+\begin{document}
+
+\renewcommand*{\adrentry}[8]{%
+  \begin{letter}{Max Mustermann\\
+      Institut für Musterforschung\\
+      Hermann-von-Helmholtz-Platz 1\\
+      76344 Eggenstein-Leopoldshafen\\
+      -- Hauspost --}
+
+    \setkomavar{fromname}{#1}
+    \setkomavar{fromaddress}{#2}
+    \setkomavar{place}{Karlsruhe}
+
+    \setkomavar{subject}{Rückantwort --- Gespräch über Promotionsthema}
+
+    \opening{}
+
+    Thema: \enquote{???}
+
+    \checkopt{Bitte um Gespräch\\Terminvorschlag:}
+
+    \checkopt{Meinerseits besteht zurzeit kein Gesprächswunsch}
+
+    \checkopt{Bitte um Rücksprache\\Telefon:}
+
+    \checkopt{Sonstige Mitteilung:}
+
+    \vspace{1em}
+
+    \closing{Mit freundlichem Gruß}
+
+  \end{letter}
+}
+\input{base.adr}
+\end{document}

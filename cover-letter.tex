@@ -1,0 +1,80 @@
+% rubber: set program xelatex
+\documentclass[
+    paper=a4,
+    parskip=half,
+    backaddress=off,
+    enlargefirstpage=true
+]{scrlttr2}
+
+\usepackage{xltxtra}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{url}
+
+% Disable or change them
+\setmainfont{Source Sans Pro}
+\setmonofont{Inconsolata}
+
+\setkomavar{fromname}{Max Mustermann}
+\setkomavar{fromaddress}{Institut für Musterforschung\\
+Hermann-von-Helmholtz-Platz 1\\
+76344 Eggenstein-Leopoldshafen}
+\setkomavar{place}{Karlsruhe}
+
+\makeatletter
+\renewcommand*{\raggedsignature}{\raggedright}
+
+% Adjust the sizes a bit, so everything fits on one page
+\@setplength{refvpos}{22.5em}
+\@setplength{refaftervskip}{4em}
+\makeatother
+
+
+\begin{document}
+
+\renewcommand*{\adrentry}[8]{%
+  \begin{letter}{#1\\ #2\\ #3}
+
+  \setkomavar{subject}{Vorstellung meines Promotionsthemas im Rahmen der Professorenrunde}
+
+  \opening{Sehr geehrte Professorinnen,\\
+  sehr geehrte Professoren,}
+
+  im ?semester ? beabsichtige ich, meine Promotionsprüfung an der Fakultät
+  für Informatik des Karlsruher Instituts für Technologie abzulegen. Meine Arbeit
+  trägt den Titel
+
+  \begin{center}
+  \enquote{???}
+  \end{center}
+
+  Sie wird von Frau/Herrn ? (Referent) und Frau/Herrn ? betreut.
+
+  Ich möchte mich gern bei Ihnen vorstellen und Ihnen das Thema meiner Arbeit
+  erläutern. Eine kurze Zusammenfassung meiner Arbeit habe ich diesem Schreiben
+  beigelegt. Wenn Sie Interesse und Zeit für ein Gespräch mit mir haben, nennen
+  Sie mir bitte mit beiliegendem Antwortschreiben, telefonisch unter ??? oder
+  per Email unter \url{max.mustermann@kit.edu} einen möglichen Termin.  Sollte
+  ein Gespräch in nächster Zeit nicht möglich sein oder sollte Ihnen die
+  schriftliche Zusammenfassung der Arbeit zunächst genügen, würde ich mich sehr
+  freuen, wenn Sie mir dies mitteilen würden.
+
+  \closing{Mit freundlichem Gruß}
+
+  \renewcaptionname{ngerman}{\enclname}{Anlagen}
+
+  \encl{Vordruck Rückantwort\\
+  Zusammenfassung der Arbeit}
+
+  \renewcaptionname{ngerman}{\enclname}{Kopie zur Kenntnis an}
+
+  \encl{Dekan der Fakultät für Informatik\\
+  Herrn ???\\
+  Karlsruher Institut für Technologie (KIT)\\
+  Am Fasanengarten 5
+  76131 Karlsruhe}
+
+  \end{letter}
+}
+\input{base.adr}
+\end{document}
